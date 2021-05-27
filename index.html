@@ -9,13 +9,14 @@
 
 <body>
 webhook link:<br><input autocomplete="off" id="link" style="width: 855px;"><br><br>
+profile picture URL:<br><input autocomplete="off" id="pfp" style="width: 455px;"><br>
 name to display:<br><input autocomplete="off" id="name" style="width: 455px;"><br>
 message:<br><input autocomplete="off" id="message" style="width: 455px;"><br>
 
-<br><button onclick="sendMessage(document.getElementById('link').value, document.getElementById('name').value, document.getElementById('message').value)">Send</button>
+<br><button onclick="sendMessage(document.getElementById('link').value, document.getElementById('pfp').value, document.getElementById('name').value, document.getElementById('message').value)">Send</button>
 
   <script>
-    function sendMessage(link, name, message) {
+    function sendMessage(link, pfp, name, message) {
       var request = new XMLHttpRequest();
       request.open("POST", link);
 
@@ -23,7 +24,7 @@ message:<br><input autocomplete="off" id="message" style="width: 455px;"><br>
 
       var params = {
         username: name,
-        avatar_url: "",
+        avatar_url:pfp ,
         content: message
       }
 
