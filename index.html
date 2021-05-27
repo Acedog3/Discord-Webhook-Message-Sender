@@ -4,32 +4,35 @@
 <head>
   <meta charset="utf-8">
   <title>Discord Webhook Message Sender</title>
-  <style>*{outline: none;} button:hover {cursor: pointer;}</style>
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts.js"></script>
 </head>
 
 <body>
+webhook link:
+<br>
+<input autocomplete="off" id="link" style="width: 855px;"><br><br>
+profile picture URL: (leave blank for default)
+<br>
+<input autocomplete="off" id="pfp" style="width: 455px;">
+<br>
+name to display:
+<br>
+<input autocomplete="off" id="name" style="width: 455px;">
+<br>
+message:
+<br>
+<input autocomplete="off" id="message" style="width: 455px;"><br>
 webhook link:<br><input autocomplete="off" id="link" style="width: 855px;"><br><br>
 profile picture URL: (leave blank for default)<br><input autocomplete="off" id="pfp" style="width: 455px;"><br>
 name to display:<br><input autocomplete="off" id="name" style="width: 455px;"><br>
 message:<br><textarea type="text" autocomplete="off" id="message" style="width: 455px;"></textarea><br>
 
-<br><button onclick="sendMessage(document.getElementById('link').value, document.getElementById('pfp').value, document.getElementById('name').value, document.getElementById('message').value)">Send</button>
+<br>
+<button onclick="submit()">Send</button>
 
-  <script>
-    function sendMessage(link, pfp, name, message) {
-      var request = new XMLHttpRequest();
-      request.open("POST", link);
-
-      request.setRequestHeader('Content-type', 'application/json');
-
-      var params = {
-        username: name,
-        avatar_url:pfp ,
-        content: message
-      }
-
-      request.send(JSON.stringify(params));
-    }
-  </script>
+  <script src="send.js"></script>
+    
+  
 </body>
 </html>
